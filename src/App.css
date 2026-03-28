@@ -1,3 +1,12 @@
+:root {
+  --font-xs: clamp(0.75rem, 0.8vw, 1rem);
+  --font-sm: clamp(0.85rem, 1vw, 1.2rem);
+  --font-md: clamp(1rem, 1.2vw, 1.45rem);
+  --font-lg: clamp(1.2rem, 1.6vw, 1.9rem);
+  --font-xl: clamp(1.6rem, 2.5vw, 2.8rem);
+  --font-xxl: clamp(2.2rem, 4vw, 3.8rem);
+}
+
 .app-shell {
   min-height: 100vh;
   display: grid;
@@ -291,7 +300,7 @@
     position: fixed;
     top: 0;
     left: -260px;
-    width: 240px; /* smaller sidebar */
+    width: 240px;
     height: 100vh;
     z-index: 10;
     transition: 0.3s ease;
@@ -306,7 +315,7 @@
     min-height: 100vh;
   }
   .main {
-    padding-top: 5rem; /* ADD THIS */
+    padding-top: 5rem;
   }
 }
 @media (max-width: 640px) {
@@ -339,8 +348,45 @@
   .inp > input {
     font-size: 1.35rem;
   }
-}
 
+  .proPage {
+    padding: 1rem;
+    align-items: flex-start;
+
+    .proCard {
+      max-width: 84%;
+      padding: 1.4rem;
+      border-radius: 18px;
+      transform: scale(0.9);
+      margin-top: 1rem;
+    }
+
+    .proCard h2 {
+      font-size: 1.6rem;
+    }
+
+    .price {
+      font-size: 2.4rem;
+    }
+
+    .proTagline {
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    .proFeatureList li {
+      font-size: 0.95rem;
+    }
+
+    .proBtn {
+      font-size: 1.2rem;
+      padding: 0.8rem;
+    }
+  }
+  .proCard {
+    max-width: 340px;
+  }
+}
 .overlay {
   z-index: 5;
 }
@@ -374,4 +420,479 @@
   justify-content: center;
 
   cursor: pointer;
+}
+
+.listItems.active {
+  background: rgba(36, 83, 200, 0.2);
+  border-radius: 10px;
+  padding: 0.6rem;
+  color: #fff;
+}
+
+.svbtn {
+  display: flex;
+  justify-content: flex-end;
+}
+.saveBtn {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding: 0.8rem 1.4rem;
+  border-radius: 12px;
+  border: 1px solid rgba(166, 188, 219, 0.18);
+  background: rgba(19, 33, 56, 0.6);
+  color: #d7e4f5;
+  font-size: 1.3rem;
+  font-weight: 500;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  transition: all 0.2s ease;
+}
+
+.saveBtn:hover {
+  background: rgba(36, 83, 200, 0.15);
+  border-color: rgba(91, 163, 255, 0.4);
+  color: #ffffff;
+
+  transform: translateY(-1px);
+}
+
+.saveBtn:active {
+  transform: scale(0.97);
+}
+
+.savedPage {
+  padding-top: 3rem;
+  width: 100%;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.savedHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.savedEyebrow {
+  margin: 0 0 0.75rem;
+  color: #7fdbca;
+  font-size: var(--font-sm);
+  font-weight: 700;
+  letter-spacing: 0.18rem;
+  text-transform: uppercase;
+}
+
+.savedPage h2 {
+  margin: 0;
+  color: #f7fbff;
+  font-size: var(--font-xxl);
+  font-weight: 700;
+}
+
+.savedCopy {
+  margin-top: 1rem;
+  max-width: 48rem;
+  color: #a9bbd3;
+  line-height: 1.8;
+  font-size: var(--font-sm);
+}
+
+.savedCard {
+  background: linear-gradient(
+    180deg,
+    rgba(9, 15, 30, 0.96),
+    rgba(12, 22, 39, 0.98)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  padding: 2rem;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.3);
+}
+
+.savedCardMeta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 1rem;
+}
+
+.savedCardLabel {
+  margin: 0;
+  color: #f7fbff;
+  font-weight: 700;
+  font-size: var(--font-lg);
+  font-weight: 600;
+}
+
+.savedCardMeta span {
+  color: #8ea2bf;
+
+  font-size: var(--font-sm);
+}
+
+.savedMessages {
+  display: grid;
+  gap: 1rem;
+}
+
+.savedChatItem {
+  padding: 1rem 1.2rem;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.savedChatItem.user {
+  background: rgba(36, 83, 200, 0.12);
+}
+
+.savedChatItem.assistant {
+  background: rgba(15, 109, 101, 0.12);
+}
+
+.savedChatItem p {
+  margin: 0;
+  color: #eaf1ff;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.emptyState {
+  margin-top: 3rem;
+  text-align: center;
+  color: #8ea2bf;
+}
+
+.proPage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  margin-top: 2rem;
+  padding-bottom: 4rem;
+}
+
+.proCard {
+  background:
+    radial-gradient(circle at top, rgba(91, 163, 255, 0.08), transparent 40%),
+    linear-gradient(180deg, rgba(10, 16, 32, 0.98), rgba(12, 22, 39, 0.97));
+  padding: 2.6rem;
+  border-radius: 22px;
+  text-align: center;
+  max-width: 480px;
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(20px);
+  box-shadow:
+    0 24px 80px rgba(0, 0, 0, 0.32),
+    0 0 30px rgba(52, 121, 255, 0.16);
+}
+
+.planBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
+  border-radius: 999px;
+  background: rgba(127, 219, 202, 0.16);
+  color: #7bedc9;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.14rem;
+  text-transform: uppercase;
+}
+
+.proCard h2 {
+  font-size: clamp(2rem, 3vw, 2.6rem);
+  margin-bottom: 0.75rem;
+  color: #f7fbff;
+}
+
+.proTagline {
+  margin: 0 auto 1.6rem;
+  max-width: 34rem;
+  color: #b8c8e2;
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+.priceRow {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 0.5rem;
+  margin: 1.2rem 0 0.35rem;
+}
+
+.price {
+  font-size: 3.5rem;
+  font-weight: 900;
+  letter-spacing: -1px;
+  background: linear-gradient(135deg, #ffffff, #7fdbca);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.priceSuffix {
+  font-size: 1rem;
+  color: #99b0d1;
+  margin-bottom: 0.35rem;
+}
+
+.planNote {
+  color: #8ea2bf;
+  font-size: 0.98rem;
+  margin-bottom: 1.6rem;
+}
+
+.proHighlights {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+  margin-bottom: 1.6rem;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.proHighlights div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.proHighlights strong {
+  font-size: 1.25rem;
+  color: #ffffff;
+}
+
+.proHighlights span {
+  color: #b8c8e2;
+  font-size: 0.95rem;
+}
+
+.proFeatureList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  text-align: left;
+}
+
+.proFeatureList li {
+  position: relative;
+  padding-left: 1.8rem;
+  color: #d7e4f5;
+  font-size: 1.1rem;
+  line-height: 1.85;
+}
+
+.proFeatureList li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0.15rem;
+  color: #7fdbca;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.proBtn {
+  width: 100%;
+  margin-top: 1.6rem;
+  padding: 1rem 0;
+  border-radius: 14px;
+  border: none;
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #57c7ff, #496dff);
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 16px 35px rgba(44, 104, 255, 0.3);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.proBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 40px rgba(44, 104, 255, 0.35);
+}
+
+.proFooter {
+  margin-top: 1rem;
+  color: #8ea2bf;
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.navCard {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.1rem 1.2rem;
+  border-radius: 14px;
+  background: rgba(19, 33, 56, 0.6);
+  border: 1px solid rgba(166, 188, 219, 0.18);
+  color: #cfe3ff;
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.navCard:hover {
+  background: rgba(36, 83, 200, 0.18);
+  border: 1px solid rgba(91, 163, 255, 0.4);
+  transform: translateX(4px);
+}
+.navCard img {
+  width: 1.6rem;
+  height: 1.6rem;
+}
+
+.savedList {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.deleteBtn {
+  background: transparent;
+  border: none;
+  color: #ff6b6b;
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: var(--font-lg);
+}
+
+.savedPreview {
+  margin-top: 1rem;
+  color: #cfe3ff;
+  line-height: 1.6;
+  font-size: var(--font-sm);
+  line-height: 1.6;
+}
+
+.openBtn {
+  margin-top: 1rem;
+  padding: 0.6rem 1rem;
+  border-radius: 10px;
+  border: 1px solid rgba(91, 163, 255, 0.4);
+  background: rgba(36, 83, 200, 0.2);
+  color: white;
+  cursor: pointer;
+  transition: 0.2s;
+  font-size: var(--font-md);
+  font-weight: 500;
+}
+
+.openBtn:hover {
+  background: rgba(36, 83, 200, 0.4);
+}
+.savedPreview p {
+  margin-bottom: 0.6rem;
+}
+
+.savedPage {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.savedList {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+  scrollbar-width: none;
+}
+.savedList::-webkit-scrollbar {
+  display: none;
+}
+.savedHeader {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: rgba(7, 17, 31, 0.9);
+  backdrop-filter: blur(12px);
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.main {
+  height: 100vh;
+  overflow: hidden;
+}
+.popularTag {
+  position: absolute;
+  top: -12px;
+  right: 20px;
+  background: linear-gradient(135deg, #ff7bff, #5a8cff);
+  color: white;
+  padding: 0.4rem 0.9rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 999px;
+  box-shadow: 0 8px 20px rgba(90, 140, 255, 0.4);
+}
+.trustLine {
+  margin-top: 0.8rem;
+  font-size: 0.9rem;
+  color: #7fdbca;
+  opacity: 0.8;
+}
+
+.proBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.5rem;
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  background: rgba(255, 215, 0, 0.06);
+  color: #e6c200;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: 1px solid rgba(255, 215, 0, 0.2);
+  box-shadow: inset 0 0 0 0.5px rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(6px);
+}
+.brandSection {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+/* PRO USER BOX */
+.proUserBox {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  margin-top: 0.4rem;
+  padding: 0.35rem 0.6rem;
+
+  border-radius: 10px;
+
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  backdrop-filter: blur(10px);
+}
+
+/* SMALL TEXT */
+.proText {
+  font-size: 0.75rem;
+  color: #9fb3d1;
+  font-weight: 500;
 }
