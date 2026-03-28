@@ -6,9 +6,13 @@
   --font-xl: clamp(1.6rem, 2.5vw, 2.8rem);
   --font-xxl: clamp(2.2rem, 4vw, 3.8rem);
 }
-
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}
 .app-shell {
-  min-height: 100vh;
+  height: 100dvh;
   display: grid;
   grid-template-columns: 280px 1fr;
   background:
@@ -24,6 +28,7 @@
     ),
     #07111f;
   color: #f3f7fb;
+  overflow: hidden;
 }
 
 .sidebar {
@@ -142,8 +147,10 @@
 .main {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  height: 100%;
   padding: 3rem clamp(1.6rem, 4vw, 4rem) 2rem;
+  overflow: hidden;
+  box-sizing: border-box;
 }
 
 .hero {
@@ -281,6 +288,7 @@
 .mobileHeader {
   display: none;
 }
+
 @media (max-width: 900px) {
   .app-shell {
     grid-template-columns: 1fr;
@@ -318,10 +326,7 @@
   }
 
   .main {
-    min-height: 100vh;
-  }
-  .main {
-    padding-top: 5rem;
+    padding-top: 4rem;
   }
 }
 @media (max-width: 640px) {
@@ -838,10 +843,6 @@
   margin-bottom: 1.5rem;
 }
 
-.main {
-  height: 100vh;
-  overflow-y: auto;
-}
 .popularTag {
   position: absolute;
   top: -12px;
