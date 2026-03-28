@@ -84,6 +84,7 @@ function App() {
   const handleNewChat = () => {
     setMessages(initialMessages);
     setInput("");
+    setActivePage("home"); // ✅ ADD THIS
   };
 
   return (
@@ -113,7 +114,10 @@ function App() {
               <button
                 key={prompt}
                 className="upperLower"
-                onClick={() => handleSend(prompt)}
+                onClick={() => {
+                  setActivePage("home");
+                  setTimeout(() => handleSend(prompt), 100);
+                }}
                 type="button"
               >
                 <img src={msgicon} alt="" />
@@ -244,10 +248,7 @@ function App() {
               <div>
                 <p className="savedEyebrow">Saved chats</p>
                 <h2>Conversations archive</h2>
-                <p className="savedCopy">
-                  Access your latest saved session in a polished archive card
-                  designed for premium review.
-                </p>
+                <p className="savedCopy">Open your most recent saved chat</p>
               </div>
             </div>
 

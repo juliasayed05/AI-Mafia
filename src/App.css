@@ -285,6 +285,12 @@
   .app-shell {
     grid-template-columns: 1fr;
   }
+  .sidebar {
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
 
   .mobileHeader {
     position: fixed;
@@ -834,7 +840,7 @@
 
 .main {
   height: 100vh;
-  overflow: hidden;
+  overflow-y: auto;
 }
 .popularTag {
   position: absolute;
@@ -874,4 +880,46 @@
 }
 .savedCard {
   max-width: 700px;
+}
+@media (max-width: 640px) {
+  .savedCardLabel {
+    font-size: 1.4rem;
+
+    .savedCardMeta span {
+      font-size: 1.1rem;
+    }
+
+    .savedPreview {
+      font-size: 1.2rem;
+    }
+
+    .savedPreview p {
+      font-size: 1.2rem;
+    }
+
+    .openBtn {
+      font-size: 1.2rem;
+      padding: 0.7rem 1.2rem;
+    }
+
+    .deleteBtn {
+      font-size: 1.3rem;
+    }
+  }
+  .lowerSide {
+    margin-top: auto;
+  }
+  .overlay {
+    z-index: 5;
+  }
+  .sidebar {
+    z-index: 10;
+  }
+  .sidebar {
+    z-index: 100;
+  }
+}
+.chats {
+  overflow-y: auto;
+  scrollbar-width: none;
 }
