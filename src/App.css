@@ -465,6 +465,9 @@
   width: 100%;
   max-width: 1080px;
   margin: 0 auto;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .savedHeader {
@@ -500,6 +503,7 @@
 }
 
 .savedCard {
+  height: fit-content;
   background: linear-gradient(
     180deg,
     rgba(9, 15, 30, 0.96),
@@ -809,6 +813,7 @@
 }
 
 .savedList {
+  align-content: start;
   flex: 1;
   overflow-y: auto;
   padding-right: 0.5rem;
@@ -867,32 +872,6 @@
   box-shadow: inset 0 0 0 0.5px rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(6px);
 }
-.brandSection {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-}
-
-/* PRO USER BOX */
-.proUserBox {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-
-  margin-top: 0.4rem;
-  padding: 0.35rem 0.6rem;
-
-  border-radius: 10px;
-
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-
-  backdrop-filter: blur(10px);
-}
-
-/* SMALL TEXT */
-.proText {
-  font-size: 0.75rem;
-  color: #9fb3d1;
-  font-weight: 500;
+.savedCard {
+  max-width: 700px;
 }
