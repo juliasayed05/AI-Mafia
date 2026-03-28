@@ -30,6 +30,7 @@ function App() {
   const [input, setInput] = useState("");
   const [messages, setMessages] = useState(initialMessages);
   const [isLoading, setIsLoading] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const handleSend = async (promptText = input) => {
     const trimmedInput = promptText.trim();
@@ -83,7 +84,10 @@ function App() {
 
   return (
     <div className="app-shell">
-      <aside className="sidebar">
+      {isSidebarOpen && (
+        <div className="overlay" onClick={() => setIsSidebarOpen(false)}></div>
+      )}
+      <aside className={`sidebar ${isSidebarOpen ? "open" : ""}`}>
         <div className="upperSide">
           <div className="upperSideTop">
             <img src={gptLogo} alt="AI logo" className="logo" />
@@ -130,6 +134,11 @@ function App() {
       </aside>
 
       <main className="main">
+        <div className="mobileHeader">
+          <button className="hamburger" onClick={() => setIsSidebarOpen(true)}>
+            ☰
+          </button>
+        </div>
         <div className="hero">
           <p className="eyebrow">AI Assistant</p>
           <h1>Ask better questions, get cleaner answers.</h1>

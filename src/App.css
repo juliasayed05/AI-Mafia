@@ -3,8 +3,16 @@
   display: grid;
   grid-template-columns: 280px 1fr;
   background:
-    radial-gradient(circle at top left, rgba(48, 90, 180, 0.24), transparent 28%),
-    radial-gradient(circle at bottom right, rgba(11, 126, 117, 0.18), transparent 26%),
+    radial-gradient(
+      circle at top left,
+      rgba(48, 90, 180, 0.24),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at bottom right,
+      rgba(11, 126, 117, 0.18),
+      transparent 26%
+    ),
     #07111f;
   color: #f3f7fb;
 }
@@ -205,7 +213,11 @@
   position: sticky;
   bottom: 0;
   padding-top: 1.5rem;
-  background: linear-gradient(180deg, rgba(7, 17, 31, 0), rgba(7, 17, 31, 0.92) 35%);
+  background: linear-gradient(
+    180deg,
+    rgba(7, 17, 31, 0),
+    rgba(7, 17, 31, 0.92) 35%
+  );
 }
 
 .inp {
@@ -257,32 +269,54 @@
   font-size: 1.15rem;
 }
 
+.mobileHeader {
+  display: none;
+}
 @media (max-width: 900px) {
   .app-shell {
     grid-template-columns: 1fr;
   }
 
+  .mobileHeader {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    width: auto;
+    z-index: 20;
+    display: flex;
+    justify-content: flex-end;
+  }
+
   .sidebar {
-    position: static;
-    height: auto;
-    overflow: visible;
-    border-right: 0;
-    border-bottom: 1px solid rgba(166, 188, 219, 0.16);
+    position: fixed;
+    top: 0;
+    left: -260px;
+    width: 240px; /* smaller sidebar */
+    height: 100vh;
+    z-index: 10;
+    transition: 0.3s ease;
+    border-right: 1px solid rgba(166, 188, 219, 0.16);
+  }
+
+  .sidebar.open {
+    left: 0;
   }
 
   .main {
-    min-height: auto;
+    min-height: 100vh;
   }
-
-  .hero h1 {
-    max-width: none;
+  .main {
+    padding-top: 5rem; /* ADD THIS */
   }
 }
-
 @media (max-width: 640px) {
   .app-shell {
     background:
-      radial-gradient(circle at top left, rgba(48, 90, 180, 0.2), transparent 36%),
+      radial-gradient(
+        circle at top left,
+        rgba(48, 90, 180, 0.2),
+        transparent 36%
+      ),
       #07111f;
   }
 
@@ -305,4 +339,39 @@
   .inp > input {
     font-size: 1.35rem;
   }
+}
+
+.overlay {
+  z-index: 5;
+}
+
+.sidebar {
+  z-index: 10;
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 5;
+}
+.hamburger {
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  border: 1px solid rgba(166, 188, 219, 0.2);
+
+  background: rgba(12, 22, 39, 0.8);
+  backdrop-filter: blur(12px);
+
+  color: #fff;
+  font-size: 1.8rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
 }
