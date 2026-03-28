@@ -1,4 +1,3 @@
-import { useState } from "react";
 import gptLogo from "./assets/chatgpt.svg";
 import addbtn from "./assets/add-30.png";
 import msgicon from "./assets/message.svg";
@@ -9,6 +8,7 @@ import send from "./assets/send.svg";
 import userIcon from "./assets/images (1).jpeg";
 import gptImgLogo from "./assets/chatgptLogo.svg";
 import { sendMsgToGemini } from "./openai";
+import { useState, useRef, useEffect } from "react";
 
 import "./App.css";
 
@@ -35,6 +35,14 @@ function App() {
   const [savedChats, setSavedChats] = useState([]);
   const [isSaved, setIsSaved] = useState(false);
   const [isPro, setIsPro] = useState(false);
+  const chatContainerRef = useRef(null);
+
+  useEffect(() => {
+    if (chatContainerRef.current) {
+      chatContainerRef.current.scrollTop =
+        chatContainerRef.current.scrollHeight;
+    }
+  }, [messages, isLoading]);
 
   const handleSend = async (promptText = input) => {
     const trimmedInput = promptText.trim();
@@ -116,7 +124,7 @@ function App() {
                 className="upperLower"
                 onClick={() => {
                   setActivePage("home");
-                  setTimeout(() => handleSend(prompt), 100);
+                  handleSend(prompt);
                 }}
                 type="button"
               >
@@ -198,7 +206,7 @@ function App() {
               </button>
             </div>
 
-            <div className="chats">
+            <div className="chats" ref={chatContainerRef}>
               {messages.map((message) => (
                 <div
                   key={message.id}
