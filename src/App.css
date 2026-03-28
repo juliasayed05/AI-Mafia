@@ -307,7 +307,7 @@
     top: 0;
     left: -260px;
     width: 240px;
-    height: 100vh;
+    height: 100dvh;
     z-index: 10;
     transition: 0.3s ease;
     border-right: 1px solid rgba(166, 188, 219, 0.16);
