@@ -92,7 +92,7 @@ function App() {
   const handleNewChat = () => {
     setMessages(initialMessages);
     setInput("");
-    setActivePage("home"); // ✅ ADD THIS
+    setActivePage("home");
   };
 
   return (
@@ -229,7 +229,6 @@ function App() {
               )}
             </div>
 
-            {/* FOOTER ONLY IN HOME */}
             <div className="chatFooter">
               <div className="inp">
                 <input
@@ -239,7 +238,7 @@ function App() {
                   onKeyDown={(e) => e.key === "Enter" && handleSend()}
                   placeholder="Send a message"
                 />
-                <button className="send" onClick={handleSend}>
+                <button className="send" onClick={() => handleSend()}>
                   <img src={send} alt="Send" />
                 </button>
               </div>
