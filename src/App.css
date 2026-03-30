@@ -925,3 +925,34 @@ body {
   overflow-y: auto;
   scrollbar-width: none;
 }
+.send {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 4.2rem;
+  height: 4.2rem;
+  border: none;
+  border-radius: 1.1rem;
+
+  /* Slightly brighter version of your existing gradient */
+  background: linear-gradient(135deg, #2aaea1, #3a6ff0);
+
+  /* subtle shadow (not glowing) */
+  box-shadow: 0 6px 16px rgba(36, 83, 200, 0.25);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.send:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(36, 83, 200, 0.35);
+}
+
+.send:active {
+  transform: scale(0.96);
+}
+
+.send img {
+  width: 1.6rem;
+  height: 1.6rem;
+  filter: brightness(1.2);
+}
