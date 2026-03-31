@@ -26,7 +26,6 @@ function toUserFriendlyError(error) {
   ) {
     return `The model "${modelName}" is not available for this request.`;
   }
-
   return message;
 }
 
