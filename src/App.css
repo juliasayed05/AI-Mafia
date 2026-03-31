@@ -328,6 +328,10 @@ body {
   .main {
     padding-top: 4rem;
   }
+  .svbtn.chatTop {
+    left: 1rem;
+    right: auto;
+  }
 }
 @media (max-width: 640px) {
   .app-shell {
@@ -999,7 +1003,8 @@ body {
 .svbtn.chatTop {
   position: fixed;
   top: 0;
-  left: 1rem; /* 👈 move to LEFT */
+  right: 1rem;
+  left: auto; /* 👈 move to LEFT */
   right: auto;
   z-index: 25;
 }
