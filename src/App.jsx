@@ -36,13 +36,14 @@ function App() {
   const [isSaved, setIsSaved] = useState(false);
   const [isPro, setIsPro] = useState(false);
   const chatContainerRef = useRef(null);
+  const hasUserStartedChat = messages.length > 1;
 
   useEffect(() => {
     if (chatContainerRef.current) {
       chatContainerRef.current.scrollTop =
         chatContainerRef.current.scrollHeight;
     }
-  }, [messages, isLoading]);
+  }, [messages]);
 
   const handleSend = async (promptText = input) => {
     const trimmedInput = promptText.trim();
@@ -169,7 +170,7 @@ function App() {
         </div>
       </aside>
 
-      <main className="main">
+      <main className={`main ${hasUserStartedChat ? "chatMode" : ""}`}>
         <div className="mobileHeader">
           <button className="hamburger" onClick={() => setIsSidebarOpen(true)}>
             ☰
@@ -178,14 +179,19 @@ function App() {
 
         {activePage === "home" && (
           <>
-            <div className="hero">
-              <p className="eyebrow">AI Assistant</p>
-              <h1>Ask better questions, get cleaner answers.</h1>
-              <p className="heroCopy">
-                A simple chat interface with starter prompts.
-              </p>
-            </div>
-            <div className="svbtn">
+            {/* ✅ Show hero only before chat starts */}
+            {!hasUserStartedChat && (
+              <div className="hero">
+                <p className="eyebrow">AI Assistant</p>
+                <h1>Ask better questions, get cleaner answers.</h1>
+                <p className="heroCopy">
+                  A simple chat interface with starter prompts.
+                </p>
+              </div>
+            )}
+
+            {/* ✅ Always visible */}
+            <div className={`svbtn ${hasUserStartedChat ? "chatTop" : ""}`}>
               <button
                 className="saveBtn"
                 onClick={() => {
@@ -198,7 +204,6 @@ function App() {
                     },
                   ]);
                   setIsSaved(true);
-
                   setTimeout(() => setIsSaved(false), 2000);
                 }}
               >

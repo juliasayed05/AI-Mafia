@@ -982,3 +982,24 @@ body {
   filter: brightness(1.8) contrast(1.2);
   transition: 0.2s ease;
 }
+.main.chatMode {
+  padding-top: 6rem; /* removes extra top space after hero disappears */
+}
+.main {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.svbtn {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* 🔥 When chat starts */
+.svbtn.chatTop {
+  position: fixed;
+  top: 0;
+  left: 1rem; /* 👈 move to LEFT */
+  right: auto;
+  z-index: 25;
+}
