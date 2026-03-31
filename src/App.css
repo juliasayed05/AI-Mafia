@@ -951,15 +951,15 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 4.4rem;
-  height: 4.2rem;
+  width: 4.6rem;
+  height: 4rem;
   border-radius: 1rem;
   background: linear-gradient(135deg, #3edbc9, #0432ae);
   box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
   transition: all 0.2s ease;
 }
 .send.enabled {
-  background: linear-gradient(135deg, #1fbdad, #2453c8);
+  background: linear-gradient(135deg, #20ebd7, #2453c8);
   border: none;
   box-shadow: 0 8px 18px rgba(36, 83, 200, 0.2);
   cursor: pointer;
