@@ -238,9 +238,18 @@ function App() {
                   onKeyDown={(e) => e.key === "Enter" && handleSend()}
                   placeholder="Send a message"
                 />
-                <button className="send" onClick={() => handleSend()}>
+                {
+                  /* <button className="send" onClick={() => handleSend()}>
                   <img src={send} alt="Send" />
-                </button>
+                </button> */
+                  <button
+                    className={`send ${input.trim() && !isLoading ? "enabled" : "disabled"}`}
+                    onClick={() => handleSend()}
+                    disabled={!input.trim() || isLoading}
+                  >
+                    <img src={send} alt="Send" />
+                  </button>
+                }
               </div>
               <p className="footer">
                 AI Mafia can make mistakes. Always verify responses before
