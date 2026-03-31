@@ -669,7 +669,6 @@ body {
   font-size: 0.98rem;
   margin-bottom: 1.6rem;
 }
-
 .proHighlights {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -929,28 +928,7 @@ body {
   overflow-y: auto;
   scrollbar-width: none;
 }
-/* .send {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 4.6rem;
-  height: 4.2rem;
-  border: 0;
-  border-radius: 1.1rem;
-  background: linear-gradient(135deg, #3edbc9, #0432ae);
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
-  transition: all 0.15s ease;
-}
-.send:hover {
-  filter: brightness(1.6);
-}
 
-.send:active {
-  transform: scale(0.96);
-}
-.send img {
-  opacity: 1;
-} */
 .send {
   display: inline-flex;
   align-items: center;
@@ -987,7 +965,7 @@ body {
   transition: 0.2s ease;
 }
 .main.chatMode {
-  padding-top: 6rem; /* removes extra top space after hero disappears */
+  padding-top: 6rem;
 }
 .main {
   display: flex;
@@ -999,12 +977,11 @@ body {
   justify-content: flex-end;
 }
 
-/* 🔥 When chat starts */
 .svbtn.chatTop {
   position: fixed;
   top: 0;
   right: 1rem;
-  left: auto; /* 👈 move to LEFT */
+  left: auto;
   right: auto;
   z-index: 25;
 }

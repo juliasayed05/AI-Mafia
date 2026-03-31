@@ -172,14 +172,16 @@ function App() {
 
       <main className={`main ${hasUserStartedChat ? "chatMode" : ""}`}>
         <div className="mobileHeader">
-          <button className="hamburger" onClick={() => setIsSidebarOpen(true)}>
+          <button
+            className="hamburger"
+            onClick={() => setIsSidebarOpen((prev) => !prev)}
+          >
             ☰
           </button>
         </div>
 
         {activePage === "home" && (
           <>
-            {/* ✅ Show hero only before chat starts */}
             {!hasUserStartedChat && (
               <div className="hero">
                 <p className="eyebrow">AI Assistant</p>
@@ -190,7 +192,6 @@ function App() {
               </div>
             )}
 
-            {/* ✅ Always visible */}
             <div className={`svbtn ${hasUserStartedChat ? "chatTop" : ""}`}>
               <button
                 className="saveBtn"
@@ -244,9 +245,6 @@ function App() {
                   placeholder="Send a message"
                 />
                 {
-                  /* <button className="send" onClick={() => handleSend()}>
-                  <img src={send} alt="Send" />
-                </button> */
                   <button
                     className={`send ${input.trim() && !isLoading ? "enabled" : "disabled"}`}
                     onClick={() => handleSend()}
