@@ -954,34 +954,25 @@ body {
   width: 4.4rem;
   height: 4.2rem;
   border-radius: 1rem;
-  border: 1px solid rgba(166, 188, 219, 0.2);
-
-  background: rgba(255, 255, 255, 0.06);
-  backdrop-filter: blur(10px);
-
+  background: linear-gradient(135deg, #3edbc9, #0432ae);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
   transition: all 0.2s ease;
 }
-
-/* ENABLED */
 .send.enabled {
-  background: linear-gradient(135deg, #1f8f83, #2453c8);
+  background: linear-gradient(135deg, #1fbdad, #2453c8);
   border: none;
-  box-shadow: 0 8px 18px rgba(36, 83, 200, 0.3);
+  box-shadow: 0 8px 18px rgba(36, 83, 200, 0.2);
   cursor: pointer;
 }
-
 .send.enabled:hover {
   transform: translateY(-1px);
-  box-shadow: 0 12px 24px rgba(36, 83, 200, 0.35);
+  box-shadow: 0 12px 24px rgba(22, 68, 183, 0.35);
 }
-
-/* DISABLED */
 .send.disabled {
-  opacity: 0.4;
+  opacity: 0.6;
   cursor: not-allowed;
   box-shadow: none;
 }
-
 .send img {
   width: 1.6rem;
   height: 1.6rem;
